@@ -4,12 +4,18 @@ function onYouTubeIframeAPIReady() {
     height: '390',
     width: '640',
     videoId: 'M7lc1UVf-VE',
+    playerVars: {
+      autoplay:0,
+      // controls: 0,
+      // disablekb: 1,
+  }, 
   });
 }
+
 let buttons = document.getElementsByTagName('button');
 let playButton = buttons[0];
 let pauseButton = buttons[1];
-let scrollbar = document.querySelectorAll('.controls input')
+let slider = document.getElementById('slider');
 playButton.addEventListener('click',playVideo);
 pauseButton.addEventListener('click',pauseVideo);
 function playVideo() {
@@ -17,5 +23,11 @@ function playVideo() {
 }
 
 function pauseVideo() {
-  player.stopVideo();
+  player.pauseVideo();
+}
+
+function changeTime(e){
+  let goTo = player.getDuration() * (e.value / 100);
+  console.log(goTo)
+  player.seekTo(goTo,true);
 }
