@@ -16,4 +16,7 @@ io.on('connection',(socket)=>{
         console.log(data);
         socket.broadcast.emit('update', data);
     });
+    socket.on('play',()=>{
+        socket.broadcast.emit('play')
+    })
 });

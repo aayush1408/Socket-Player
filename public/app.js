@@ -15,18 +15,26 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '500px',
     width: '100%' ,
-    videoId: 'A_iGzUSvodc',
+    videoId: '5_3AzyRJcJE',
     playerVars: {
       autoplay:0,
+      rel:0,
+      modestbranding:1,
       controls: 0,
       disablekb: 1,
+      showInfo:0
   }, 
   });
 }
 
 
 function playVideo() {
+  socket.emit('play')
   player.playVideo();
+  setInterval(()=>{
+    let fraction = player.getCurrentTime()/player.getDuration()*100;
+    slider.value = fraction;
+  },200)
 }
 
 function pauseVideo() {
@@ -45,4 +53,8 @@ socket.on('update',(data)=>{
   console.log('Recieved data',data)
   slider.value = data;
   player.seekTo(data,true);
+})
+
+socket.on('play',()=>{
+  player.playVideo();
 })
