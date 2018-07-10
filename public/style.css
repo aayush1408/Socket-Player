@@ -1,0 +1,10 @@
+#slider{
+    width: 100%;
+    display: inline-block;
+}
+#player{
+    margin-top: 10px;
+}
+.controls button{
+    text-align: center
+}

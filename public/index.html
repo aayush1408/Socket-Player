@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"></script>  
+    </head>
+  <body>
+    <div class="header">
+        <h2>Socket Player</h2>
+    </div>
+    <div id="search">
+        <input type="text"/>
+        <button>Search</button>
+    </div>
+    <div id="player"></div>
+    <div class="controls">
+        <button>Play</button>
+        <button>Pause</button> 
+        <input id="slider" type="range" min="0" max="100" value="0" step="1" oninput="changeTime(this)" /> 
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
