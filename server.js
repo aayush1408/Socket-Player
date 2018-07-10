@@ -19,4 +19,7 @@ io.on('connection',(socket)=>{
     socket.on('play',()=>{
         socket.broadcast.emit('play')
     })
+    socket.on('pause',()=>{
+        socket.broadcast.emit('pause')
+    })
 });

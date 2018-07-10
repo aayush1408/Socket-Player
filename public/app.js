@@ -38,6 +38,7 @@ function playVideo() {
 }
 
 function pauseVideo() {
+  socket.emit('pause')
   player.pauseVideo();
 }
 
@@ -57,4 +58,8 @@ socket.on('update',(data)=>{
 
 socket.on('play',()=>{
   player.playVideo();
+})
+
+socket.on('pause',()=>{
+  player.pauseVideo();
 })
