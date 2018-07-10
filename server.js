@@ -22,4 +22,7 @@ io.on('connection',(socket)=>{
     socket.on('pause',()=>{
         socket.broadcast.emit('pause')
     })
+    socket.on('slider',(data)=>{
+        socket.broadcast.emit('slider',data)
+    })
 });

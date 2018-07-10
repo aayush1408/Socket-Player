@@ -34,6 +34,7 @@ function playVideo() {
   setInterval(()=>{
     let fraction = player.getCurrentTime()/player.getDuration()*100;
     slider.value = fraction;
+    socket.emit('slider',slider.value)
   },200)
 }
 
@@ -62,4 +63,8 @@ socket.on('play',()=>{
 
 socket.on('pause',()=>{
   player.pauseVideo();
+})
+
+socket.on('slider',(data)=>{
+  slider.value = data;
 })
