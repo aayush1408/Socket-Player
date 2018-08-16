@@ -4,10 +4,13 @@ const app = express();
 
 
 app.use(express.static('public'));
+
+//Run the server
 const server = app.listen('4000',()=>{
     console.log('Server running at 4000');
 });
 
+// setup sockets
 const io = socket(server);
 
 io.on('connection',(socket)=>{
