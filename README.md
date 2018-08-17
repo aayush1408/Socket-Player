@@ -9,3 +9,6 @@ A platform for watching YouTube videos together at the same moment and keeping t
 > Install the dependencies using ```npm i```
 
 > Run the app using ```npm start``` 
+
+#### Problem
+> Good internet connection required at both ends.
